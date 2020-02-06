@@ -38,7 +38,9 @@
  * Set INCLUDE_SDIOS nonzero to include sdios.h in SdFat.h.
  * sdios.h provides C++ style IO Streams.
  */
+#ifndef INCLUDE_SDIOS
 #define INCLUDE_SDIOS 1
+#endif
 //------------------------------------------------------------------------------
 /**
  * Set USE_LONG_FILE_NAMES nonzero to use long file names (LFN).
@@ -58,7 +60,9 @@
  *  * (asterisk)
  *
  */
+#ifndef USE_LONG_FILE_NAMES
 #define USE_LONG_FILE_NAMES 1
+#endif
 //------------------------------------------------------------------------------
 /**
  * If the symbol ENABLE_EXTENDED_TRANSFER_CLASS is nonzero, the class SdFatEX
@@ -68,7 +72,9 @@
  * These classes used extended multi-block SD I/O for better performance.
  * the SPI bus may not be shared with other devices in this mode.
  */
+#ifndef ENABLE_EXTENDED_TRANSFER_CLASS
 #define ENABLE_EXTENDED_TRANSFER_CLASS 0
+#endif
 //------------------------------------------------------------------------------
 /**
  * If the symbol USE_STANDARD_SPI_LIBRARY is zero, an optimized custom SPI
@@ -77,14 +83,18 @@
  * USE_STANDARD_SPI_LIBRARY is two, the SPI port can be selected with the
  * constructors SdFat(SPIClass* spiPort) and SdFatEX(SPIClass* spiPort).
  */
+#ifndef USE_STANDARD_SPI_LIBRARY
 #define USE_STANDARD_SPI_LIBRARY 0
+#endif
 //------------------------------------------------------------------------------
 /**
  * If the symbol ENABLE_SOFTWARE_SPI_CLASS is nonzero, the class SdFatSoftSpi
  * will be defined. If ENABLE_EXTENDED_TRANSFER_CLASS is also nonzero,
  * the class SdFatSoftSpiEX will be defined.
  */
+#ifndef ENABLE_SOFTWARE_SPI_CLASS
 #define ENABLE_SOFTWARE_SPI_CLASS 0
+#endif
 //------------------------------------------------------------------------------
 /** If the symbol USE_FCNTL_H is nonzero, open flags for access modes O_RDONLY,
  * O_WRONLY, O_RDWR and the open modifiers O_APPEND, O_CREAT, O_EXCL, O_SYNC
@@ -111,14 +121,18 @@
  * Some cards will not sleep in low power mode unless CHECK_FLASH_PROGRAMMING
  * is non-zero.
  */
+#ifndef CHECK_FLASH_PROGRAMMING
 #define CHECK_FLASH_PROGRAMMING 1
+#endif
 //------------------------------------------------------------------------------
 /**
  * Set MAINTAIN_FREE_CLUSTER_COUNT nonzero to keep the count of free clusters
  * updated.  This will increase the speed of the freeClusterCount() call
  * after the first call.  Extra flash will be required.
  */
+#ifndef MAINTAIN_FREE_CLUSTER_COUNT
 #define MAINTAIN_FREE_CLUSTER_COUNT 0
+#endif
 //------------------------------------------------------------------------------
 /**
  * To enable SD card CRC checking set USE_SD_CRC nonzero.
@@ -129,7 +143,9 @@
  * Set USE_SD_CRC to 2 to used a larger table driven CRC-CCITT function.  This
  * function is faster for AVR but may be slower for ARM and other processors.
  */
+#ifndef USE_SD_CRC
 #define USE_SD_CRC 0
+#endif
 //------------------------------------------------------------------------------
 /**
  * Handle Watchdog Timer for WiFi modules.
@@ -148,14 +164,18 @@
  * Set FAT12_SUPPORT nonzero to enable use of FAT12 volumes.
  * FAT12 has not been well tested and requires additional flash.
  */
+#ifndef FAT12_SUPPORT
 #define FAT12_SUPPORT 0
+#endif
 //------------------------------------------------------------------------------
 /**
  * Set DESTRUCTOR_CLOSES_FILE nonzero to close a file in its destructor.
  *
  * Causes use of lots of heap in ARM.
  */
+#ifndef DESTRUCTOR_CLOSES_FILE
 #define DESTRUCTOR_CLOSES_FILE 0
+#endif
 //------------------------------------------------------------------------------
 /**
  * Call flush for endl if ENDL_CALLS_FLUSH is nonzero
@@ -174,7 +194,9 @@
  * If ENDL_CALLS_FLUSH is zero, you must call flush and/or close to force
  * all data to be written to the SD.
  */
+#ifndef ENDL_CALLS_FLUSH
 #define ENDL_CALLS_FLUSH 0
+#endif
 //------------------------------------------------------------------------------
 /**
  * Set USE_SEPARATE_FAT_CACHE nonzero to use a second 512 byte cache
